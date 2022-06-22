@@ -22,7 +22,7 @@ resource "aws_security_group_rule" "alb-ingress-http80" {
   cidr_blocks       = ["0.0.0.0/0"]
 }
 
-resource "aws_security_group_rule" "alb-engress-nodejs" {
+resource "aws_security_group_rule" "alb-egress-nodejs" {
   security_group_id        = aws_security_group.sg_alb.id
   type                     = "egress"
   from_port                = 3000
@@ -31,7 +31,7 @@ resource "aws_security_group_rule" "alb-engress-nodejs" {
   source_security_group_id = aws_security_group.sg_ecs.id
 }
 
-resource "aws_security_group_rule" "alb-engress-django" {
+resource "aws_security_group_rule" "alb-egress-django" {
   security_group_id        = aws_security_group.sg_alb.id
   type                     = "egress"
   from_port                = 8000
